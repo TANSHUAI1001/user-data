@@ -15,6 +15,7 @@
   "author": "shuai",
   "license": "ISC",
   "dependencies": {
+    "echarts": "^3.5.3",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.4.2",

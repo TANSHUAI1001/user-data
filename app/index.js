@@ -11,6 +11,7 @@ import { createStore, applyMiddleware } from 'redux';
 import Users from './containers/Users';
 import reducer from './reducers';
 import FixedDataTable from './components/FixedDataTable'
+import ReactECharts from './components/EchartTest'
 
 const middleware = [ thunk ]
 if (process.env.NODE_ENV !== 'production') {
@@ -28,7 +29,8 @@ render(
     <Provider store={store}>
       <div>
         {/*<Users />*/}
-        <FixedDataTable />
+        {/*<FixedDataTable />*/}
+       <ReactECharts />
       </div>
     </Provider>,
     document.body.appendChild(root)

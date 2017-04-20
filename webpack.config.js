@@ -87,6 +87,7 @@ const developmentConfig = merge([
   },
   // parts.generateSourceMaps({ type: 'cheap-module-eval-source-map' }),
   parts.generateSourceMaps({ type: 'eval-source-map' }),
+    // parts.generateSourceMaps({ type: 'source-map' }),
   parts.devServer({
     // Customize host/port here if needed
     host: process.env.HOST,
