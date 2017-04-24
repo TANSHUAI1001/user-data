@@ -94,7 +94,10 @@ const developmentConfig = merge([
     // port: process.env.PORT,
     port:3000,
   }),
-  parts.loadCSS(),
+  // parts.loadCSS(),
+   parts.extractCSS({
+    use: ['css-loader', parts.autoprefix()],
+  }),
   parts.loadImages(),
 ]);
 
@@ -102,18 +105,20 @@ module.exports = (env) => {
   const pages = [
     parts.page({
       title: '门户首页',
+      inject: true,
       entry: {
-        app: PATHS.app,
+        "main/index": path.join(PATHS.app, "index.js"),
       },
-      chunks: ['app', 'vendor'],
+      chunks: ['main/index', 'vendor'],
     }),
     parts.page({
       title: '商城首页',
+      inject: true,
       path: 'mall',
       entry: {
-        another: path.join(PATHS.app, 'mall.js'),
+        "mall/mall": path.join(PATHS.app, 'mall.js'),
       },
-      chunks: ['mall', 'vendor'],
+      chunks: ['mall/mall', 'vendor']
     }),
   ];
   const config = env === 'production' ?

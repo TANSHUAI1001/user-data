@@ -5,6 +5,7 @@ const cssnano = require('cssnano');
 const BabiliPlugin = require('babili-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const spath = require('path');
 
 exports.devServer = ({host, port} = {}) => ({
   devServer: {
@@ -146,6 +147,10 @@ exports.page = ({
   chunks,
 } = {}) => ({
   entry,
+  // output:{
+  //   path:spath.resolve(__dirname, 'dist/gics'),
+  //   publicPath:"gics/"
+  // },
   plugins: [
     new HtmlWebpackPlugin({
       chunks,
@@ -179,7 +184,7 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
           loader: 'url-loader',
           options:{
             limit:10000,
-            name:'./images/[name].[ext]'
+            name:'images/[name].[ext]'
           },
         },
       },

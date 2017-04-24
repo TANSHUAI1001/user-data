@@ -3,14 +3,17 @@ import echarts from 'echarts'
 
 class ReactECharts extends Component{
      componentDidMount() {
-         this.showChart()
+         let data = this.props.data
+        //  console.log(data)
+         this.showChart(data)
      }
 
     componentDidUpdate(){
-　　　　　this.showChart()
+         let data = this.props.data
+　　　　　this.showChart(data)
      }
 
-     showChart(){
+     showChart(data){
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
         // 绘制图表
@@ -18,13 +21,17 @@ class ReactECharts extends Component{
             title: { text: 'ECharts 入门示例' },
             tooltip: {},
             xAxis: {
-                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                // data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                data:data.xAxisData
             },
-            yAxis: {},
+            yAxis: {
+                data:data.yAxisData
+            },
             series: [{
                 name: '销量',
                 type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
+                // data: [5, 20, 36, 10, 10, 20]
+                data:data.seriesData
             }]
         });
 
