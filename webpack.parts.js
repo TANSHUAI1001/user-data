@@ -147,10 +147,6 @@ exports.page = ({
   chunks,
 } = {}) => ({
   entry,
-  // output:{
-  //   path:spath.resolve(__dirname, 'dist/gics'),
-  //   publicPath:"gics/"
-  // },
   plugins: [
     new HtmlWebpackPlugin({
       chunks,

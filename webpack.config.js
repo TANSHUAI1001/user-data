@@ -5,14 +5,18 @@ const parts = require('./webpack.parts');
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, 'build'),
+  build: path.resolve(__dirname, 'dist/gics'),
+  // build: path.join(__dirname, 'build'),
   exclude: path.join(__dirname, 'node_modules'),
+  publicPath:"/gics/",
+  // localPublicPath:"gics/"
 };
 
 const commonConfig = merge([
   {
     output: {
       path: PATHS.build,
+      // publicPath:PATHS.publicPath,
       filename: '[name].js',
     },
   },
@@ -27,6 +31,7 @@ const productionConfig = merge([
       maxAssetSize: 450000, // in bytes
     },
     output: {
+      // publicPath:PATHS.localPublicPath,
       chunkFilename: '[name].chunk.js',
       filename: '[name].js',
     },
@@ -82,6 +87,7 @@ const productionConfig = merge([
 const developmentConfig = merge([
   {
     output: {
+      publicPath:PATHS.publicPath,
       devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
     },
   },
