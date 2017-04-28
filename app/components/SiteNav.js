@@ -11,7 +11,7 @@ const SiteNav = ({content}) => (
             </div>
             <div className="right-side">
                 <div className="account"><div className="account-icon"></div><div id="account-name">账户</div></div> 
-                <div className="exit"><div className="exit-icon"></div><div id="exit-button">退出</div></div>
+                <div className="exit"><div className="exit-icon"></div><div id="exit-button">退</div></div>
             </div>
         </div>
 )

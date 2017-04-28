@@ -8,7 +8,7 @@ const PATHS = {
   build: path.resolve(__dirname, 'dist/gics'),
   // build: path.join(__dirname, 'build'),
   exclude: path.join(__dirname, 'node_modules'),
-  publicPath:"/gics/",
+  // publicPath:"/gics/",
   // localPublicPath:"gics/"
 };
 

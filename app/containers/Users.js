@@ -25,7 +25,7 @@ componentDidMount() {
 const mapStateToPorps = state =>{
   const{isFetching, didInvalidate,items:data} = state
   return {
-    isFetching, didInvalidate,data
+    isFetching, didInvalidate,data 
   }
 }
 
