@@ -5,10 +5,29 @@ import NavBar from 'components/NavBar'
 
 
 class Header extends Component{
-    componentDidMount(){
-
+    constructor(props){
+        super(props)
+        this.state = {count:1}
     }
-
+    componentDidMount(){
+        // this.setState({count:1})
+    }
+    mouseOver = ()=>{
+        let count = 1
+        this.setState({count:count})
+        console.log("mouse over!!!" + count)
+    }
+    mouseLeave = ()=>{
+        let count = 0
+        this.setState({count:count})
+        console.log("mouse left!!!" + count)
+    }
+    mOver(e){
+        e.preventDefault()
+        this.setState({count:this.state.count++})
+        console.log("mouse over ==> "+this.state.count)
+    }
+    
     render(){
         let navContent = [
             {text:"首页",body:"home",icon:"home-icon"},
@@ -27,8 +46,9 @@ class Header extends Component{
         ]
         return(
             <div className="header clearfix">
-                <SiteNav content={{pageTitle:"垃圾智能分类系统"}}/>
-                <NavBar content={navContent}/>
+                <SiteNav content={{pageTitle:"垃圾智能分类系统"}} />
+                {/*<div onMouseOver={this.mOver.bind(this)} onMouseLeave={this.mouseLeave}>测试行</div>*/}
+                <NavBar content={navContent} mouseOver={this.mouseOver} mouseLeave={this.mouseLeave}/>
             </div>
         )
     }

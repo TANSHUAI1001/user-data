@@ -1,6 +1,6 @@
 import React,{PropTypes} from "react"
 import styles from "../css/common.css"
-import { Button } from 'react-bootstrap'
+// import { Button } from 'react-bootstrap'
 
 const DataList = ({data}) =>(
     <div>
@@ -25,7 +25,7 @@ const DataList = ({data}) =>(
             )
         }
     </table>
-    <Button bsStyle="primary">BS按钮</Button>
+    {/*<Button bsStyle="primary">BS按钮</Button>*/}
     </div>
 )
 

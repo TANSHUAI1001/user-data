@@ -8,7 +8,7 @@ const PATHS = {
   build: path.resolve(__dirname, 'dist/gics'),
   // build: path.join(__dirname, 'build'),
   exclude: path.join(__dirname, 'node_modules'),
-  // publicPath:"/gics/",
+  // publicPath:"/",
   // localPublicPath:"gics/"
 };
 
@@ -31,7 +31,7 @@ const productionConfig = merge([
       maxAssetSize: 450000, // in bytes
     },
     output: {
-      // publicPath:PATHS.localPublicPath,
+      // publicPath:PATHS.publicPath,
       chunkFilename: '[name].chunk.js',
       filename: '[name].js',
     },
@@ -62,10 +62,10 @@ const productionConfig = merge([
         resource.match(/\.(js|jsx)$/)
       ),
     },
-    // {
-    //   name: 'manifest',
-    //   minChunks: Infinity,
-    // },
+    {
+      name: 'manifest',
+      minChunks: Infinity,
+    },
   ]),
   // parts.generateSourceMaps({ type: 'source-map' }),
   parts.generateSourceMaps({ type: 'false' }),
@@ -87,7 +87,7 @@ const productionConfig = merge([
 const developmentConfig = merge([
   {
     output: {
-      publicPath:PATHS.publicPath,
+      // publicPath:PATHS.publicPath,
       devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
     },
   },
@@ -115,7 +115,7 @@ module.exports = (env) => {
       entry: {
         "main/index": path.join(PATHS.app, "index.js"),
       },
-      chunks: ['main/index', 'vendor'],
+      chunks: ['main/index', 'vendor','manifest'],
     }),
     parts.page({
       title: '商城首页',
@@ -124,7 +124,7 @@ module.exports = (env) => {
       entry: {
         "mall/mall": path.join(PATHS.app, 'mall.js'),
       },
-      chunks: ['mall/mall', 'vendor']
+      chunks: ['mall/mall', 'vendor','manifest']
     }),
   ];
   const config = env === 'production' ?
