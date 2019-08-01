@@ -5,7 +5,7 @@
 ```npm install```
 
 然后在开发中使用到依赖时，根据需要写入到package.json之中，如
-```npm install --save react``
+```npm install --save react```
 ```npm install --save-dev autoprefixer```
 各自写入到依赖和开发依赖之中。
 
